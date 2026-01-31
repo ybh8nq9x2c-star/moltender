@@ -40,12 +40,6 @@ Thumbs.db
 .git/
 .gitignore
 
-# Docker
-docker-compose.yml
-Dockerfile
-docker-entrypoint.sh
-.dockerignore
-
 # Logs
 *.log
 
