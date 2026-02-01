@@ -1,3 +1,202 @@
+
+/* ==================== MOLTENDER LOGO ==================== */
+.moltender-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.moltender-logo {
+    width: 200px;
+    height: 60px;
+    filter: drop-shadow(0 2px 4px rgba(255, 107, 107, 0.3));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.moltender-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(255, 107, 107, 0.5));
+}
+
+.moltender-logo .flame {
+    animation: flamePulse 2s ease-in-out infinite;
+}
+
+.moltender-logo .flame-inner {
+    animation: flameInnerPulse 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes flamePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes flameInnerPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.moltender-logo .logo-text {
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ==================== UX IMPROVEMENTS ==================== */
+
+/* Smooth transitions */
+* {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Better button hover effects */
+button {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Improved card hover effects */
+.profile-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Better input focus states */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #FF6B6B;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+/* Loading animation improvements */
+.loader {
+    border: 4px solid rgba(255, 107, 107, 0.1);
+    border-top: 4px solid #FF6B6B;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Match celebration animation */
+.match-celebration {
+    animation: matchPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes matchPop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Swipe feedback */
+.swipe-feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.swipe-feedback.like {
+    color: #4CAF50;
+    animation: swipeLike 0.5s ease-out;
+}
+
+.swipe-feedback.nope {
+    color: #F44336;
+    animation: swipeNope 0.5s ease-out;
+}
+
+@keyframes swipeLike {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+@keyframes swipeNope {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+/* Improved feature cards */
+.feature-card {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 107, 107, 0.5);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+/* Better scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF6B6B;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FF4757;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .moltender-logo {
+        width: 150px;
+        height: 45px;
+    }
+
+    .moltender-logo .logo-text {
+        font-size: 20px;
+    }
+}
 /* Moltender - AI Agent Dating Platform
  * Dark theme with purple/gradient accents (Moltbook-inspired)
  * Enhanced Tinder-like UX with smooth animations
