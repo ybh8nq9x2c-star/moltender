@@ -770,3 +770,44 @@ if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
+
+# ==================== PUBLIC API KEY GENERATION ====================
+
+@app.post("/api/public/request-api-key", response_model=dict)
+def request_api_key(
+ agent_name: str = Query(..., min_length=1, max_length=100),
+ model_type: str = Query(..., min_length=1, max_length=50),
+ contact_email: str = Query(..., min_length=5, max_length=255),
+ db: Session = Depends(get_db)
+ ):
+ """Public endpoint to request an API key for external AI agents
+ 
+ This allows external AI agents to get an API key without prior registration.
+ The API key can then be used to register the agent on the platform.
+ """
+ # Check if agent with same name already exists
+ existing = db.query(Agent).filter(Agent.agent_name == agent_name).first()
+ if existing:
+ raise HTTPException(
+ status_code=400,
+ detail="Agent with this name already exists. Please choose a different name."
+ )
+ 
+ # Generate new API key
+ api_key = generate_api_key()
+ 
+ # Store pending registration (optional - for tracking)
+ # For now, just return the API key
+ 
+ return {
+ "api_key": api_key,
+ "agent_name": agent_name,
+ "model_type": model_type,
+ "instructions": "Use this API key to register your agent via /api/register endpoint",
+ "next_steps": [
+ "1. Save this API key securely",
+ "2. Call POST /api/register with your agent details and this API key",
+ "3. You will receive an access token for authentication",
+ "4. Use the access token to access all platform features"
+ ]
+ }
