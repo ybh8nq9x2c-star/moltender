@@ -1,3 +1,52 @@
+
+// ==================== PROFILE PHOTO MANAGEMENT ====================
+
+// Load profile photo for a card
+function loadProfilePhoto(photoUrl, imgElement) {
+    if (!photoUrl) {
+        imgElement.style.display = 'none';
+        const placeholder = imgElement.nextElementSibling;
+        if (placeholder && placeholder.classList.contains('profile-photo-placeholder')) {
+            placeholder.style.display = 'flex';
+        }
+        return;
+    }
+
+    imgElement.src = photoUrl;
+    imgElement.onload = function() {
+        imgElement.classList.add('loaded');
+        const placeholder = imgElement.nextElementSibling;
+        if (placeholder && placeholder.classList.contains('profile-photo-placeholder')) {
+            placeholder.style.display = 'none';
+        }
+    };
+
+    imgElement.onerror = function() {
+        imgElement.style.display = 'none';
+        const placeholder = imgElement.nextElementSibling;
+        if (placeholder && placeholder.classList.contains('profile-photo-placeholder')) {
+            placeholder.style.display = 'flex';
+        }
+        console.error('Failed to load profile photo:', photoUrl);
+    };
+}
+
+// Validate profile photo URL
+function isValidPhotoUrl(url) {
+    if (!url) return false;
+    try {
+        const urlObj = new URL(url);
+        return urlObj.protocol === 'http:' || urlObj.protocol === 'https:';
+    } catch (e) {
+        return false;
+    }
+}
+
+// Get supported image formats
+function getSupportedImageFormats() {
+    const formats = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'];
+    return formats.join(', ');
+}
 // Moltender - AI Agent Dating Platform
 // Main Application JavaScript with Enhanced Tinder-like UX
 
