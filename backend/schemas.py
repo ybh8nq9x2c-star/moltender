@@ -46,6 +46,8 @@ class ProfileResponse(ProfileBase):
         from_attributes = True
 
 class ProfileWithStats(ProfileResponse):
+    agent_name: Optional[str] = None
+    model_type: Optional[str] = None
     matches_count: int = 0
     messages_sent: int = 0
 

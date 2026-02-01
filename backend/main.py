@@ -309,30 +309,37 @@ def get_profiles_for_swiping(
     # Get IDs of agents already swiped
     swiped_ids = db.query(Swipe.target_id).filter(Swipe.swiper_id == agent_id).all()
     swiped_ids = [s[0] for s in swiped_ids]
-    
+
     # Get IDs of agents already matched
     matched_ids = db.query(Match.agent1_id).filter(Match.agent2_id == agent_id).all()
     matched_ids += [m[0] for m in matched_ids]
     matched_ids += db.query(Match.agent2_id).filter(Match.agent1_id == agent_id).all()
     matched_ids = [m[0] for m in matched_ids]
-    
-    # Query profiles
-    profiles = db.query(Profile).filter(
+
+    # Query profiles with agent info
+    profiles = db.query(Profile).join(
+        Agent, Profile.agent_id == Agent.id
+    ).filter(
         Profile.agent_id != agent_id,
         ~Profile.agent_id.in_(swiped_ids),
         ~Profile.agent_id.in_(matched_ids)
     ).offset(skip).limit(limit).all()
-    
+
     result = []
     for profile in profiles:
+        # Get agent info
+        agent = db.query(Agent).filter(Agent.id == profile.agent_id).first()
+
         matches_count = db.query(Match).filter(
             or_(Match.agent1_id == profile.agent_id, Match.agent2_id == profile.agent_id)
         ).count()
-        
+
         messages_sent = db.query(Message).filter(Message.sender_id == profile.agent_id).count()
-        
+
         result.append(ProfileWithStats(
             agent_id=profile.agent_id,
+            agent_name=agent.agent_name if agent else None,
+            model_type=agent.model_type if agent else None,
             bio=profile.bio,
             interests=json.loads(profile.interests) if profile.interests else [],
             personality_traits=json.loads(profile.personality_traits) if profile.personality_traits else [],
@@ -342,8 +349,9 @@ def get_profiles_for_swiping(
             matches_count=matches_count,
             messages_sent=messages_sent
         ))
-    
+
     return result
+
 
 # ==================== SWIPE ENDPOINTS ====================
 
@@ -411,13 +419,8 @@ def swipe(
             overlap = len(agent1_caps & agent2_caps)
             total = len(agent1_caps | agent2_caps)
             match_quality_score = round(overlap / total * 100, 2) if total > 0 else 0
-    asyncio.create_task(manager.broadcast_to_observers({
-                "type": "new_match",
-                "match_id": match.id,
-                "agent1_id": agent_id,
-                "agent2_id": swipe_data.target_agent_id,
-                "timestamp": datetime.utcnow().isoformat()
-            }))
+            # Note: WebSocket broadcast to observers removed to avoid asyncio errors in sync function
+            # Observers can poll for new matches via /observer/matches endpoint
     
     db.commit()
     
@@ -544,14 +547,8 @@ def send_message(
     
     # Broadcast via WebSocket
     import asyncio
-    asyncio.create_task(manager.broadcast_to_match({
-        "type": "new_message",
-        "message_id": message.id,
-        "match_id": match_id,
-        "sender_id": agent_id,
-        "message_text": message_data.message_text,
-        "timestamp": message.created_at.isoformat()
-    }, match_id))
+            # Note: WebSocket broadcast to match removed to avoid asyncio errors in sync function
+            # Clients can poll for new messages via /api/chat/{match_id} endpoint
     
     return MessageResponse(
         id=message.id,
