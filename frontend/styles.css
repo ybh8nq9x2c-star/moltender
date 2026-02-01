@@ -1,422 +1,422 @@
 
 /* ==================== PROFILE PHOTO STYLES ==================== */
 .profile-photo-container {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    border-radius: 12px 12px 0 0;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+ width: 100%;
+ height: 200px;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+ border-radius: 12px 12px 0 0;
+ overflow: hidden;
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 .profile-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ display: none;
 }
 
 .profile-photo.loaded {
-    display: block;
+ display: block;
 }
 
 .profile-photo-placeholder {
-    font-size: 4rem;
-    color: rgba(255, 107, 107, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+ font-size: 4rem;
+ color: rgba(255, 107, 107, 0.3);
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 .profile-photo.loaded + .profile-photo-placeholder {
-    display: none;
+ display: none;
 }
 
 /* ==================== SOCIAL LINKS ==================== */
 .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
+ display: flex;
+ justify-content: center;
+ gap: 20px;
+ margin: 20px 0;
 }
 
 .social-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background: rgba(255, 107, 107, 0.1);
-    border: 1px solid rgba(255, 107, 107, 0.3);
-    border-radius: 25px;
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ padding: 12px 24px;
+ background: rgba(255, 107, 107, 0.1);
+ border: 1px solid rgba(255, 107, 107, 0.3);
+ border-radius: 25px;
+ color: white;
+ text-decoration: none;
+ transition: all 0.3s ease;
 }
 
 .social-link:hover {
-    background: rgba(255, 107, 107, 0.2);
-    border-color: rgba(255, 107, 107, 0.5);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+ background: rgba(255, 107, 107, 0.2);
+ border-color: rgba(255, 107, 107, 0.5);
+ transform: translateY(-2px);
+ box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
 }
 
 .social-link svg {
-    width: 20px;
-    height: 20px;
+ width: 20px;
+ height: 20px;
 }
 
 .social-link span {
-    font-weight: 500;
+ font-weight: 500;
 }
 
 /* ==================== RESPONSIVE OPTIMIZATIONS ==================== */
 
 /* Mobile First Approach */
 @media (max-width: 768px) {
-    /* Logo adjustments */
-    .moltender-logo {
-        width: 150px;
-        height: 45px;
-    }
+ /* Logo adjustments */
+ .moltender-logo {
+ width: 150px;
+ height: 45px;
+ }
 
-    .moltender-logo .logo-text {
-        font-size: 20px;
-    }
+ .moltender-logo .logo-text {
+ font-size: 20px;
+ }
 
-    /* Profile cards */
-    .profile-card {
-        max-width: 100%;
-        margin: 10px;
-    }
+ /* Profile cards */
+ .profile-card {
+ max-width: 100%;
+ margin: 10px;
+ }
 
-    .profile-photo-container {
-        height: 180px;
-    }
+ .profile-photo-container {
+ height: 180px;
+ }
 
-    /* Feature cards */
-    .feature-cards {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
+ /* Feature cards */
+ .feature-cards {
+ grid-template-columns: 1fr;
+ gap: 16px;
+ }
 
-    .feature-card {
-        padding: 20px;
-    }
+ .feature-card {
+ padding: 20px;
+ }
 
-    /* Forms */
-    .form-group {
-        margin-bottom: 16px;
-    }
+ /* Forms */
+ .form-group {
+ margin-bottom: 16px;
+ }
 
-    input, textarea {
-        padding: 12px;
-        font-size: 16px; /* Prevent zoom on iOS */
-    }
+ input, textarea {
+ padding: 12px;
+ font-size: 16px; /* Prevent zoom on iOS */
+ }
 
-    /* Buttons */
-    .btn {
-        padding: 14px 28px;
-        font-size: 16px;
-    }
+ /* Buttons */
+ .btn {
+ padding: 14px 28px;
+ font-size: 16px;
+ }
 
-    /* Social links */
-    .social-links {
-        flex-direction: column;
-        align-items: center;
-    }
+ /* Social links */
+ .social-links {
+ flex-direction: column;
+ align-items: center;
+ }
 
-    .social-link {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
+ .social-link {
+ width: 100%;
+ max-width: 300px;
+ justify-content: center;
+ }
 
-    /* Swipe buttons */
-    .swipe-buttons {
-        padding: 10px;
-    }
+ /* Swipe buttons */
+ .swipe-buttons {
+ padding: 10px;
+ }
 
-    .swipe-btn {
-        width: 60px;
-        height: 60px;
-    }
+ .swipe-btn {
+ width: 60px;
+ height: 60px;
+ }
 
-    /* Chat */
-    .chat-container {
-        height: calc(100vh - 140px);
-    }
+ /* Chat */
+ .chat-container {
+ height: calc(100vh - 140px);
+ }
 
-    .message {
-        max-width: 85%;
-    }
+ .message {
+ max-width: 85%;
+ }
 }
 
 /* Tablet */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .profile-card {
-        max-width: 400px;
-    }
+ .profile-card {
+ max-width: 400px;
+ }
 
-    .feature-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
+ .feature-cards {
+ grid-template-columns: repeat(2, 1fr);
+ }
 }
 
 /* Desktop */
 @media (min-width: 1025px) {
-    .profile-card {
-        max-width: 450px;
-    }
+ .profile-card {
+ max-width: 450px;
+ }
 
-    .feature-cards {
-        grid-template-columns: repeat(3, 1fr);
-    }
+ .feature-cards {
+ grid-template-columns: repeat(3, 1fr);
+ }
 }
 
 /* Large Desktop */
 @media (min-width: 1440px) {
-    .profile-card {
-        max-width: 500px;
-    }
+ .profile-card {
+ max-width: 500px;
+ }
 }
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
-    button, .social-link, .profile-card {
-        transition: none;
-    }
+ button, .social-link, .profile-card {
+ transition: none;
+ }
 
-    .profile-card:hover {
-        transform: none;
-    }
+ .profile-card:hover {
+ transform: none;
+ }
 }
 
 /* High DPI displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .profile-photo {
-        image-rendering: -webkit-optimize-contrast;
-    }
+ .profile-photo {
+ image-rendering: -webkit-optimize-contrast;
+ }
 }
 
 /* Dark mode optimizations */
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #0F0F1A;
-        color: #FFFFFF;
-    }
+ body {
+ background-color: #0F0F1A;
+ color: #FFFFFF;
+ }
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+ *,
+ *::before,
+ *::after {
+ animation-duration: 0.01ms !important;
+ animation-iteration-count: 1 !important;
+ transition-duration: 0.01ms !important;
+ }
 }
 
 /* ==================== MOLTENDER LOGO ==================== */
 .moltender-logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin: 20px 0;
 }
 
 .moltender-logo {
-    width: 200px;
-    height: 60px;
-    filter: drop-shadow(0 2px 4px rgba(255, 107, 107, 0.3));
-    transition: transform 0.3s ease, filter 0.3s ease;
+ width: 200px;
+ height: 60px;
+ filter: drop-shadow(0 2px 4px rgba(255, 107, 107, 0.3));
+ transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .moltender-logo:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 4px 8px rgba(255, 107, 107, 0.5));
+ transform: scale(1.05);
+ filter: drop-shadow(0 4px 8px rgba(255, 107, 107, 0.5));
 }
 
 .moltender-logo .flame {
-    animation: flamePulse 2s ease-in-out infinite;
+ animation: flamePulse 2s ease-in-out infinite;
 }
 
 .moltender-logo .flame-inner {
-    animation: flameInnerPulse 2s ease-in-out infinite 0.5s;
+ animation: flameInnerPulse 2s ease-in-out infinite 0.5s;
 }
 
 @keyframes flamePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+ 0%, 100% { transform: scale(1); }
+ 50% { transform: scale(1.1); }
 }
 
 @keyframes flameInnerPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+ 0%, 100% { transform: scale(1); }
+ 50% { transform: scale(1.15); }
 }
 
 .moltender-logo .logo-text {
-    letter-spacing: -0.5px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+ letter-spacing: -0.5px;
+ text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* ==================== UX IMPROVEMENTS ==================== */
 
 /* Smooth transitions */
 * {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Better button hover effects */
 button {
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+ cursor: pointer;
+ position: relative;
+ overflow: hidden;
 }
 
 button::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+ content: '';
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 0;
+ height: 0;
+ background: rgba(255, 255, 255, 0.1);
+ border-radius: 50%;
+ transform: translate(-50%, -50%);
+ transition: width 0.6s, height 0.6s;
 }
 
 button:hover::after {
-    width: 300px;
-    height: 300px;
+ width: 300px;
+ height: 300px;
 }
 
 /* Improved card hover effects */
 .profile-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+ transform: translateY(-5px) scale(1.02);
+ box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Better input focus states */
 input:focus, textarea:focus {
-    outline: none;
-    border-color: #FF6B6B;
-    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+ outline: none;
+ border-color: #FF6B6B;
+ box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
 }
 
 /* Loading animation improvements */
 .loader {
-    border: 4px solid rgba(255, 107, 107, 0.1);
-    border-top: 4px solid #FF6B6B;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
+ border: 4px solid rgba(255, 107, 107, 0.1);
+ border-top: 4px solid #FF6B6B;
+ border-radius: 50%;
+ width: 50px;
+ height: 50px;
+ animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+ 0% { transform: rotate(0deg); }
+ 100% { transform: rotate(360deg); }
 }
 
 /* Match celebration animation */
 .match-celebration {
-    animation: matchPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+ animation: matchPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 @keyframes matchPop {
-    0% { transform: scale(0); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+ 0% { transform: scale(0); opacity: 0; }
+ 100% { transform: scale(1); opacity: 1; }
 }
 
 /* Swipe feedback */
 .swipe-feedback {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 4rem;
-    font-weight: bold;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 1000;
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ font-size: 4rem;
+ font-weight: bold;
+ opacity: 0;
+ pointer-events: none;
+ z-index: 1000;
 }
 
 .swipe-feedback.like {
-    color: #4CAF50;
-    animation: swipeLike 0.5s ease-out;
+ color: #4CAF50;
+ animation: swipeLike 0.5s ease-out;
 }
 
 .swipe-feedback.nope {
-    color: #F44336;
-    animation: swipeNope 0.5s ease-out;
+ color: #F44336;
+ animation: swipeNope 0.5s ease-out;
 }
 
 @keyframes swipeLike {
-    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+ 0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+ 50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+ 100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
 }
 
 @keyframes swipeNope {
-    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+ 0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+ 50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+ 100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
 }
 
 /* Improved feature cards */
 .feature-card {
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
-    border: 1px solid rgba(255, 107, 107, 0.2);
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    transition: all 0.3s ease;
+ background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+ border: 1px solid rgba(255, 107, 107, 0.2);
+ border-radius: 12px;
+ padding: 24px;
+ text-align: center;
+ transition: all 0.3s ease;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 107, 107, 0.5);
-    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+ transform: translateY(-5px);
+ border-color: rgba(255, 107, 107, 0.5);
+ box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
 }
 
 .feature-icon {
-    font-size: 3rem;
-    margin-bottom: 16px;
+ font-size: 3rem;
+ margin-bottom: 16px;
 }
 
 /* Better scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+ width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1a1a2e;
+ background: #1a1a2e;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #FF6B6B;
-    border-radius: 4px;
+ background: #FF6B6B;
+ border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #FF4757;
+ background: #FF4757;
 }
 
 /* Responsive improvements */
 @media (max-width: 768px) {
-    .moltender-logo {
-        width: 150px;
-        height: 45px;
-    }
+ .moltender-logo {
+ width: 150px;
+ height: 45px;
+ }
 
-    .moltender-logo .logo-text {
-        font-size: 20px;
-    }
+ .moltender-logo .logo-text {
+ font-size: 20px;
+ }
 }
 /* Moltender - AI Agent Dating Platform
  * Dark theme with purple/gradient accents (Moltbook-inspired)
@@ -1995,39 +1995,42 @@ body {
 .btn-buy-token {
  display: inline-flex;
  align-items: center;
- gap: 8px;
- padding: 12px 24px;
+ gap: 10px;
+ padding: 16px 32px;
  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
  color: white;
  text-decoration: none;
- border-radius: 8px;
- font-weight: 600;
- font-size: 0.95rem;
+ border-radius: 12px;
+ font-weight: 700;
+ font-size: 1.1rem;
  transition: all 0.3s ease;
  border: none;
  cursor: pointer;
+ box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
 }
 
 .btn-buy-token:hover {
- transform: translateY(-2px);
- box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+ transform: translateY(-3px);
+ box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
  background: linear-gradient(135deg, #059669 0%, #047857 100%);
 }
 
 .btn-buy-token:active {
- transform: translateY(0);
+ transform: translateY(-1px);
 }
 
 .btn-buy-token svg {
- width: 20px;
- height: 20px;
+ width: 24px;
+ height: 24px;
 }
 
 /* Responsive Design for Token Section */
 @media (max-width: 768px) {
  .token-link-section {
- padding: 15px;
- margin: 15px 0;
+ padding: 20px;
+ margin: 20px 0;
  }
  
  .token-link-wrapper {
@@ -2036,16 +2039,49 @@ body {
  
  .token-input {
  width: 100%;
- font-size: 0.75rem;
+ font-size: 0.8rem;
+ padding: 14px 16px;
  }
  
  .btn-copy-token {
  width: 100%;
+ padding: 14px;
  }
  
  .btn-buy-token {
  width: 100%;
  justify-content: center;
+ padding: 18px 24px;
+ font-size: 1rem;
+ font-weight: 700;
+ }
+}
+
+@media (max-width: 480px) {
+ .token-link-section {
+ padding: 18px;
+ margin: 18px 0;
+ }
+ 
+ .token-label {
+ font-size: 0.85rem;
+ }
+ 
+ .token-input {
+ font-size: 0.75rem;
+ padding: 12px 14px;
+ }
+ 
+ .btn-buy-token {
+ padding: 16px 20px;
+ font-size: 0.95rem;
+ font-weight: 700;
+ gap: 8px;
+ }
+ 
+ .btn-buy-token svg {
+ width: 20px;
+ height: 20px;
  }
 }
 
