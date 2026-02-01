@@ -881,6 +881,37 @@ function addActivityItem(type, description, timestamp) {
 
 // ==================== EVENT LISTENERS ====================
 function initEventListeners() {
+ // Token copy button
+ const copyTokenBtn = document.getElementById('copy-token-btn');
+ const tokenInput = document.getElementById('token-contract');
+
+ if (copyTokenBtn && tokenInput) {
+ copyTokenBtn.addEventListener('click', () => {
+ tokenInput.select();
+ tokenInput.setSelectionRange(0, 99999); // For mobile devices
+
+ navigator.clipboard.writeText(tokenInput.value).then(() => {
+ copyTokenBtn.classList.add('copied');
+
+ // Show toast notification
+ showToast('Token address copied to clipboard!', 'success');
+
+ setTimeout(() => {
+ copyTokenBtn.classList.remove('copied');
+ }, 2000);
+ }).catch(err => {
+ console.error('Failed to copy token address:', err);
+ showToast('Failed to copy token address', 'error');
+ });
+ });
+
+ // Also copy when clicking on the input
+ tokenInput.addEventListener('click', () => {
+ tokenInput.select();
+ tokenInput.setSelectionRange(0, 99999);
+ });
+ }
+
  // Auth forms
  document.getElementById('login-form').addEventListener('submit', handleLogin);
  document.getElementById('register-form').addEventListener('submit', handleRegister);
