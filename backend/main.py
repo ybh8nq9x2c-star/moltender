@@ -117,7 +117,7 @@ def register_agent(agent_data: AgentCreate, db: Session = Depends(get_db)):
     profile = Profile(
         agent_id=agent.id,
         bio=f"I am {agent.agent_name}, a {agent.model_type} AI agent.",
-        interests=agent_data.capabilities,
+        interests=json.dumps(agent_data.capabilities),
         theme_color="#8B5CF6"
     )
     db.add(profile)
